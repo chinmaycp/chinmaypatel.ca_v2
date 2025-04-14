@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Navbar from "./layouts/Navbar";
+import Footer from "./layouts/Footer";
+import Hero from "./sections/Hero";
+import Qualifications from "./sections/Qualifications";
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
+import Blog from "./sections/Blog";
+import Contact from "./sections/Contact";
+import BlogPostPage from "./pages/BlogPostPage";
+
+const HomePageLayout = () => (
+	<>
+		<Hero />
+		<Qualifications />
+		<Projects />
+		<Skills />
+		<Blog />
+		<Contact />
+	</>
+);
 
 function App() {
-  const [count, setCount] = useState(0)
+	const location = useLocation();
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const mainPaddingTop = location.pathname.startsWith("/blog/")
+		? "2rem"
+		: "var(--navbar-height, 60px)";
+
+	return (
+		<div className="App">
+			<Navbar />
+			<main style={{ paddingTop: mainPaddingTop }}>
+				<Routes>
+					<Route path="/" element={<HomePageLayout />} />
+					<Route path="/blog/:slug" element={<BlogPostPage />} />
+					{/* Optional: Add a 404 Not Found route */}
+					{/* <Route path="*" element={<NotFoundPage />} /> */}
+				</Routes>
+			</main>
+			<Footer />
+		</div>
+	);
 }
 
-export default App
+export default App;

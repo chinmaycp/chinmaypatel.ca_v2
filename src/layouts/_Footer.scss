@@ -1,0 +1,23 @@
+@use "../styles/variables" as *;
+
+.footer {
+	height: $footer-height;
+	background-color: #f8f8f8; // Light grey background
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin-top: auto; // Helps push footer down in some layouts if main content is short
+
+	&__container {
+		width: 90%;
+		max-width: 1200px;
+	}
+
+	p {
+		color: #666; // Grey text color
+		font-size: 0.85rem;
+		margin: 0;
+	}
+}

@@ -1,0 +1,36 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.projects {
+	background-color: $background-color; // Or a very light grey like #fafafa
+
+	.container {
+		max-width: 1200px; // Allow wider container for projects
+		margin: 0 auto;
+	}
+
+	.section__title {
+		text-align: center;
+		margin-bottom: 3rem;
+		font-size: 2rem;
+		color: #333;
+	}
+
+	&__grid {
+		display: grid;
+		// Responsive grid: 1 column mobile, 2 tablet, 3 desktop
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (min-width: 1024px) {
+			grid-template-columns: repeat(
+				3,
+				1fr
+			); // Adjust based on number/size of cards
+		}
+	}
+}

@@ -1,0 +1,125 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "sass:color";
+
+.contact {
+	background-color: #f9f9f9; // Match qualifications background perhaps
+
+	.container {
+		max-width: 1000px; // Adjust max width as needed
+		margin: 0 auto;
+	}
+
+	.section__title {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	&__subtitle {
+		text-align: center;
+		margin-bottom: 3rem;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	&__content-wrapper {
+		display: grid;
+		grid-template-columns: 1fr; // Stack by default
+		gap: 3rem; // Gap between form and info
+
+		@media (min-width: 768px) {
+			grid-template-columns: 2fr 1fr; // Form takes more space on wider screens
+			gap: 4rem;
+		}
+	}
+
+	&__form-container {
+		// Container for the form if needed for spacing/background
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem; // Space between form groups
+
+		.form-group {
+			display: flex;
+			flex-direction: column;
+
+			label {
+				margin-bottom: 0.5rem;
+				font-weight: 500;
+				font-size: 0.9rem;
+				color: #444;
+			}
+
+			input[type="text"],
+			input[type="email"],
+			textarea {
+				padding: 0.8rem 1rem;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				font-size: 1rem;
+				font-family: inherit; // Use the body font
+				transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+				&:focus {
+					outline: none;
+					border-color: $primary-color;
+					box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+				}
+			}
+
+			textarea {
+				resize: vertical; // Allow vertical resize only
+				min-height: 120px;
+			}
+		}
+
+		button[type="submit"] {
+			align-self: flex-start; // Align button to the left
+			margin-top: 0.5rem;
+			// Uses .btn and .btn--primary styles defined earlier
+		}
+	} // end __form
+
+	&__info-container {
+		h3 {
+			font-size: 1.3rem;
+			margin-bottom: 1rem;
+			color: #333;
+		}
+		p {
+			margin-bottom: 1rem;
+			color: #555;
+			line-height: 1.6;
+			a {
+				color: $primary-color;
+				text-decoration: underline;
+				&:hover {
+					color: color.adjust($primary-color, $lightness: 10%);
+				}
+			}
+		}
+	}
+
+	&__social-title {
+		margin-top: 2rem; // Add space before social links title
+	}
+
+	&__social-links {
+		display: flex;
+		gap: 1.5rem; // Space between social icons
+
+		.social-link {
+			color: #444; // Icon color
+			font-size: 2rem; // Size of the icons
+			transition: color 0.3s ease, transform 0.3s ease;
+
+			&:hover {
+				color: $primary-color;
+				transform: scale(1.1); // Slight scale effect on hover
+			}
+		}
+	}
+}

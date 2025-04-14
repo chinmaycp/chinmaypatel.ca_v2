@@ -1,0 +1,95 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "sass:color";
+
+.project-card {
+	background-color: #fff;
+	border-radius: 8px; // Slightly rounded corners
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); // Subtle shadow
+	overflow: hidden; // Ensure image corners are rounded
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	&:hover {
+		transform: translateY(-5px); // Slight lift on hover
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+	}
+
+	&__image-container {
+		width: 100%;
+		aspect-ratio: 16 / 10; // Adjust aspect ratio as needed
+		background-color: #eee; // Placeholder background
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover; // Cover the area, might crop
+	}
+
+	&__content {
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1; // Allow content to take remaining space
+	}
+
+	&__title {
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin-bottom: 0.75rem;
+		color: #222;
+	}
+
+	&__description {
+		font-size: 0.95rem;
+		color: #555;
+		margin-bottom: 1.25rem;
+		line-height: 1.5;
+		flex-grow: 1; // Push tech stack & links to bottom
+	}
+
+	&__tech-stack {
+		margin-bottom: 1.5rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+
+		.tech-tag {
+			background-color: rgba($primary-color, 0.1);
+			color: color.adjust($primary-color, $lightness: 10%);
+			padding: 0.25rem 0.6rem;
+			border-radius: 12px; // Pill shape
+			font-size: 0.8rem;
+			font-weight: 500;
+		}
+	}
+
+	&__links {
+		display: flex;
+		gap: 0.75rem;
+		align-items: center; // Align items vertically
+
+		.btn--small {
+			// Example modifier for smaller buttons on cards
+			padding: 0.5rem 1rem;
+			font-size: 0.85rem;
+			border-radius: 15px;
+
+			svg {
+				// Style icons within buttons
+				margin-right: 0.4rem;
+				vertical-align: middle; // Helps align icon with text
+				position: relative; // Adjust positioning if needed
+				top: -1px;
+			}
+		}
+
+		.btn--outline {
+			// Specific style for outline button if needed
+			border-width: 1px;
+		}
+	}
+}

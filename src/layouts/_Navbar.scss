@@ -1,0 +1,63 @@
+@use "../styles/variables" as *;
+
+.navbar {
+	height: $navbar-height;
+	background-color: rgba(255, 255, 255, 0.8); // Semi-transparent white
+	backdrop-filter: blur(10px); // Frosted glass effect
+	position: fixed; // Make it sticky
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000; // Ensure it's above other content
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+
+	&__container {
+		width: 90%;
+		max-width: 1200px; // Max content width
+		margin: 0 auto; // Center the content
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: $text-color;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: none; // Remove underline on hover for logo
+		}
+	}
+
+	&__nav {
+		// Navigation styles
+	}
+
+	&__list {
+		list-style: none;
+		display: flex;
+		gap: 1.5rem; // Spacing between nav items
+		padding: 0;
+		margin: 0;
+	}
+
+	&__item {
+		// List item styles (if needed)
+	}
+
+	&__link {
+		color: $text-color;
+		text-decoration: none;
+		font-size: 0.95rem;
+		transition: color 0.2s ease-in-out;
+
+		&:hover {
+			color: $primary-color;
+			text-decoration: none; // Remove underline on hover for nav links too
+		}
+	}
+}

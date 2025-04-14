@@ -1,0 +1,83 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.skills {
+	background-color: $background-color; // Match overall background or use subtle contrast
+
+	.container {
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+
+	.section__title {
+		text-align: center;
+		margin-bottom: 3rem;
+		font-size: 2rem;
+		color: #333;
+	}
+
+	&__categories {
+		display: grid;
+		// Responsive grid for categories
+		grid-template-columns: 1fr; // Stack categories on small screens
+		gap: 3rem;
+
+		@media (min-width: 768px) {
+			// Adjust columns based on number of categories & desired layout
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		}
+		@media (min-width: 1024px) {
+			grid-template-columns: repeat(3, 1fr); // Example: 3 columns
+			gap: 3.5rem;
+		}
+	}
+
+	&__category {
+		// Styles for each category block
+	}
+
+	&__category-title {
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		color: #444;
+		// Optional: Add a subtle border or background if desired
+		// border-bottom: 1px solid #eee;
+		// padding-bottom: 0.5rem;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap; // Allow skills to wrap within a category
+		gap: 1rem; // Gap between skill items
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem; // Space between icon and text
+		background-color: #f0f0f0; // Light grey background for the tag
+		padding: 0.5rem 1rem; // Padding inside the tag
+		border-radius: 16px; // Pill shape
+		font-size: 0.95rem;
+		color: #333;
+		transition: background-color 0.3s ease;
+
+		// Optional hover effect
+		// &:hover {
+		//   background-color: darken(#f0f0f0, 5%);
+		// }
+	}
+
+	&__icon {
+		display: inline-flex; // Helps with alignment
+		font-size: 1.2rem; // Adjust icon size
+		color: $primary-color; // Use primary color for icons
+		position: relative;
+		top: 1px; // Fine-tune vertical alignment if needed
+	}
+
+	&__name {
+		// Styles for the skill name text if needed
+	}
+}

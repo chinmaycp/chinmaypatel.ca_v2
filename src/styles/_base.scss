@@ -1,0 +1,53 @@
+@use "variables" as *;
+
+:root {
+	--navbar-height: 60px; /* Use the same value as $navbar-height */
+}
+
+html {
+	scroll-behavior: smooth; // Enable smooth scrolling!
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: $primary-font;
+	color: $text-color;
+	background-color: $background-color;
+	line-height: 1.6;
+}
+
+main {
+	padding-top: var(--navbar-height);
+}
+
+section {
+	// Basic section spacing - adjust as needed
+	padding: 4rem 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+a {
+	color: $primary-color;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
