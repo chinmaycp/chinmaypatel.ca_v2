@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm"; // Import remark-gfm
-import { loadBlogPost } from "../utils/loadBlogPosts"; // Import single post loader
+import remarkGfm from "remark-gfm";
+import { loadBlogPost } from "../utils/loadBlogPosts";
 
 // Optional: Add syntax highlighting later with react-syntax-highlighter
 
@@ -24,14 +24,14 @@ const BlogPostPage = () => {
 			// navigate('/404'); or navigate('/');
 		}
 		setLoading(false);
-	}, [slug, navigate]); // Rerun effect if slug changes
+	}, [slug, navigate]);
 
 	if (loading) {
 		return (
 			<div className="container">
 				<p>Loading post...</p>
 			</div>
-		); // Basic loading state
+		);
 	}
 
 	if (!post) {
@@ -49,8 +49,6 @@ const BlogPostPage = () => {
 
 	return (
 		<div className="container blog-post-page">
-			{" "}
-			{/* Container and specific class */}
 			<article>
 				<header className="blog-post-page__header">
 					<h1>{post.title}</h1>
@@ -67,7 +65,6 @@ const BlogPostPage = () => {
 			</article>
 			<div className="blog-post-page__back-link">
 				<Link to="/#blog" className="btn btn--secondary">
-					{" "}
 					&larr; Back to Blog Preview
 				</Link>
 			</div>

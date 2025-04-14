@@ -1,0 +1,47 @@
+:root {
+	--bg-color: #ffffff;
+	--bg-color-navbar: #ffffffcc;
+	--bg-secondary-color: #f9f9f9;
+	--text-color: #212529;
+	--text-secondary-color: #555555;
+	--heading-color: #1d1d1f;
+	--card-bg: #ffffff;
+	--card-shadow: rgba(0, 0, 0, 0.08);
+	--card-shadow-hover: rgba(0, 0, 0, 0.12);
+	--border-color: #eeeeee;
+	--border-color-navbar: #0000001a;
+	--primary-color: #007aff;
+	--primary-color-darker: #005ecb;
+	--navbar-bg: rgba(255, 255, 255, 0.8);
+	--tag-bg: rgba(0, 122, 255, 0.1);
+	--tag-text: #005ecb;
+	--code-bg: #f8f8f8;
+	--code-text: #333;
+	--pre-bg: #2d2d2d;
+	--pre-text: #f1f1f1;
+	--pill-bg: #f0f0f0;
+}
+
+[data-theme="dark"] {
+	--bg-color: #121212;
+	--bg-color-navbar: #121212cc;
+	--bg-secondary-color: #1a1a1a;
+	--text-color: #e0e0e0;
+	--text-secondary-color: #aaaaaa;
+	--heading-color: #f5f5f7;
+	--card-bg: #333333;
+	--card-shadow: rgba(225, 225, 225, 0.1);
+	--card-shadow-hover: rgba(225, 225, 225, 0.25);
+	--border-color: #333333;
+	--border-color-navbar: #3333331a;
+	--primary-color: #0a84ff;
+	--primary-color-darker: #0060d1;
+	--navbar-bg: rgba(29, 29, 31, 0.8);
+	--tag-bg: rgba(10, 132, 255, 0.2);
+	--tag-text: #4da3ff;
+	--code-bg: #333;
+	--code-text: #eee;
+	--pre-bg: #222;
+	--pre-text: #f1f1f1;
+	--pill-bg: #555;
+}

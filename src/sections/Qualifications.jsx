@@ -1,15 +1,7 @@
 import React from "react";
 import { FaAws } from "react-icons/fa";
 import { motion } from "framer-motion";
-
-const sectionFadeIn = {
-	hidden: { opacity: 0, y: 40 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.6, ease: "easeOut" },
-	},
-};
+import { sectionFadeIn } from "../utils/animations";
 
 const Qualifications = () => {
 	return (

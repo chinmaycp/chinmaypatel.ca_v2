@@ -1,15 +1,7 @@
 import React from "react";
 import profilePhoto from "../assets/images/profile-photo-test.jpg";
 import { motion } from "framer-motion";
-
-const sectionFadeIn = {
-	hidden: { opacity: 0, y: 40 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.6, ease: "easeOut" },
-	},
-};
+import { sectionFadeIn } from "../utils/animations";
 
 const Hero = () => {
 	return (

@@ -2,7 +2,7 @@
 @use "../styles/mixins" as *;
 
 .blog-preview {
-	background-color: #f9f9f9; // Match qualifications background perhaps
+	background-color: var(--bg-color);
 
 	.container {
 		max-width: 960px;
@@ -16,26 +16,28 @@
 
 	&__list {
 		display: grid;
-		grid-template-columns: 1fr; // Stack posts by default
+		grid-template-columns: 1fr;
 		gap: 2.5rem;
-		// Optional: Add columns for wider screens if desired
-		// @media (min-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	&__item {
-		background-color: #fff;
+		background-color: var(--pill-bg);
 		padding: 1.5rem;
 		border-radius: 6px;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+		box-shadow: 0 2px 8px var(--card-shadow);
 
 		&-title {
 			font-size: 1.4rem;
 			margin-bottom: 0.5rem;
 			a {
-				color: #333; // Title link color
+				color: var(--heading-color);
 				text-decoration: none;
 				&:hover {
-					color: $primary-color;
+					color: var(--primary-color);
 					text-decoration: underline;
 				}
 			}
@@ -43,25 +45,23 @@
 
 		&-meta {
 			font-size: 0.85rem;
-			color: #777;
+			color: var(--text-secondary-color);
 			margin-bottom: 1rem;
 		}
 
 		&-excerpt {
 			font-size: 0.95rem;
-			color: #555;
+			color: var(--text-secondary-color);
 			margin-bottom: 1.5rem;
 			line-height: 1.6;
 		}
 
-		// Adjust button spacing if needed
 		.btn {
 			margin-top: 0.5rem;
 		}
 	}
 
 	&__more-link {
-		// Style for optional "View All" button
 		text-align: center;
 		margin-top: 3rem;
 	}

@@ -1,39 +1,11 @@
 import React from "react";
 import { skillsData } from "../data/skillsData";
 import { motion } from "framer-motion";
-
-const sectionFadeIn = {
-	hidden: { opacity: 0, y: 40 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.6, ease: "easeOut" },
-	},
-};
-
-// Variant for the container (grid) to orchestrate stagger
-const containerVariant = {
-	hidden: { opacity: 0 },
-	visible: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.2,
-		},
-	},
-};
-
-// Variant for individual items (cards)
-const itemVariant = {
-	hidden: { opacity: 0, y: 30 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.5,
-			ease: "easeOut",
-		},
-	},
-};
+import {
+	sectionFadeIn,
+	fadeInUpItem,
+	fastStaggerContainer,
+} from "../utils/animations";
 
 const Skills = () => {
 	return (
@@ -49,7 +21,7 @@ const Skills = () => {
 				<h2 className="section__title">Technical Skills</h2>
 				<motion.div
 					className="skills__categories"
-					variants={containerVariant}
+					variants={fastStaggerContainer}
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.1 }}
@@ -58,7 +30,7 @@ const Skills = () => {
 						<motion.div
 							key={index}
 							className="skills__category"
-							variants={itemVariant}
+							variants={fadeInUpItem}
 						>
 							<h3 className="skills__category-title">
 								{categoryData.category}

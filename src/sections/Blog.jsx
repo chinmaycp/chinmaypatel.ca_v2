@@ -2,23 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loadBlogPosts } from "../utils/loadBlogPosts";
 import { motion } from "framer-motion";
-
-const sectionFadeIn = {
-	hidden: { opacity: 0, y: 40 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.6, ease: "easeOut" },
-	},
-};
+import { sectionFadeIn } from "../utils/animations";
 
 const Blog = () => {
 	const [posts, setPosts] = useState([]);
-	const postsToShow = 3; // Number of recent posts to show in the preview
+	const postsToShow = 3;
 
 	useEffect(() => {
 		const allPosts = loadBlogPosts();
-		setPosts(allPosts.slice(0, postsToShow)); // Get only the latest posts
+		setPosts(allPosts.slice(0, postsToShow));
 	}, []);
 
 	return (
@@ -66,10 +58,11 @@ const Blog = () => {
 						))}
 					</div>
 				)}
-				{/* Optional: Link to a dedicated blog page if you have many posts */}
-				{/* <div className="blog-preview__more-link">
-           <Link to="/blog" className="btn btn--primary">View All Posts</Link>
-         </div> */}
+				<div className="blog-preview__more-link">
+					<Link to="/#" className="btn btn--primary">
+						View All Posts
+					</Link>
+				</div>
 			</div>
 		</motion.section>
 	);

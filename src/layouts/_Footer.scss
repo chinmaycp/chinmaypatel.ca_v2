@@ -2,13 +2,13 @@
 
 .footer {
 	height: $footer-height;
-	background-color: #f8f8f8; // Light grey background
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	background-color: var(--bg-secondary-color);
+	border-top: 1px solid var(--border-color-navbar);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	margin-top: auto; // Helps push footer down in some layouts if main content is short
+	margin-top: auto;
 
 	&__container {
 		width: 90%;
@@ -16,7 +16,7 @@
 	}
 
 	p {
-		color: #666; // Grey text color
+		color: var(--text-secondary-color);
 		font-size: 0.85rem;
 		margin: 0;
 	}

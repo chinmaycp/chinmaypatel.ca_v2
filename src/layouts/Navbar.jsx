@@ -1,4 +1,5 @@
 import React from "react";
+import ThemeToggleButton from "../components/ThemeToggleButton";
 
 const Navbar = () => {
 	return (
@@ -7,7 +8,6 @@ const Navbar = () => {
 				<a href="#" className="navbar__logo">
 					Your Name
 				</a>
-				{/* Or use a logo component */}
 				<nav className="navbar__nav">
 					<ul className="navbar__list">
 						<li className="navbar__item">
@@ -35,9 +35,9 @@ const Navbar = () => {
 								Contact
 							</a>
 						</li>
-						{/* Add links to Resume PDF, GitHub, LinkedIn later */}
 					</ul>
 				</nav>
+				<ThemeToggleButton />
 			</div>
 		</header>
 	);

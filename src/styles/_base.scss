@@ -19,9 +19,10 @@ html {
 
 body {
 	font-family: $primary-font;
-	color: $text-color;
-	background-color: $background-color;
+	color: var(--text-color);
+	background-color: var(--bg-color);
 	line-height: 1.6;
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 main {
@@ -44,10 +45,10 @@ h6 {
 }
 
 a {
-	color: $primary-color;
+	color: var(--primary-color);
 	text-decoration: none;
 
 	&:hover {
-		text-decoration: underline;
+		color: var(--primary-color-darker);
 	}
 }

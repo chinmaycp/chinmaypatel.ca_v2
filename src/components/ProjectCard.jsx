@@ -1,5 +1,6 @@
 import React from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"; // Import icons
+import PropTypes from "prop-types";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const ProjectCard = ({ project }) => {
 	const { id, title, imageUrl, description, techStack, liveUrl, repoUrl } =
@@ -10,7 +11,7 @@ const ProjectCard = ({ project }) => {
 			<div className="project-card__image-container">
 				<img
 					src={imageUrl}
-					alt={`${title} screenshot`}
+					alt={`Screenshot of ${title} project`}
 					className="project-card__image"
 					loading="lazy"
 				/>
@@ -26,18 +27,18 @@ const ProjectCard = ({ project }) => {
 					))}
 				</div>
 				<div className="project-card__links">
-					{liveUrl && ( // Only show link if URL exists
+					{liveUrl && (
 						<a
 							href={liveUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="btn btn--small btn--outline" // Reusing button styles, maybe smaller
+							className="btn btn--small btn--outline"
 							aria-label={`Live demo of ${title}`}
 						>
 							<FaExternalLinkAlt aria-hidden="true" /> Live Demo
 						</a>
 					)}
-					{repoUrl && ( // Only show link if URL exists
+					{repoUrl && (
 						<a
 							href={repoUrl}
 							target="_blank"
@@ -52,6 +53,19 @@ const ProjectCard = ({ project }) => {
 			</div>
 		</div>
 	);
+};
+
+ProjectCard.propTypes = {
+	project: PropTypes.shape({
+		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+			.isRequired,
+		title: PropTypes.string.isRequired,
+		imageUrl: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		techStack: PropTypes.arrayOf(PropTypes.string).isRequired,
+		liveUrl: PropTypes.string,
+		repoUrl: PropTypes.string,
+	}).isRequired,
 };
 
 export default ProjectCard;

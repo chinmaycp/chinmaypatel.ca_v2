@@ -2,9 +2,8 @@
 @use "../styles/mixins" as *;
 
 .qualifications {
-	background-color: #f9f9f9; // Slightly off-white background
+	background-color: var(--bg-secondary-color);
 
-	// Optional container to constrain width and center content
 	.container {
 		max-width: 960px;
 		margin: 0 auto;
@@ -13,40 +12,31 @@
 	.section__title {
 		text-align: center;
 		margin-bottom: 3rem;
-		font-size: 2rem; // Standard section title size
-		color: #333;
+		font-size: 2rem;
+		color: var(--text-color);
 	}
 
 	&__grid {
 		display: grid;
-		gap: 2.5rem; // Space between grid items
+		gap: 2.5rem;
 
-		// Simple stacking layout by default
-		// Change to columns on larger screens if desired
 		@media (min-width: 768px) {
-			grid-template-columns: repeat(
-				auto-fit,
-				minmax(300px, 1fr)
-			); // Responsive columns
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 			gap: 3rem;
 		}
-	}
-
-	&__item {
-		// Styles for each qualification block (Education, Certs)
 	}
 
 	&__item-title {
 		font-size: 1.4rem;
 		margin-bottom: 1.5rem;
-		color: $primary-color; // Use accent color for subheadings
-		border-bottom: 2px solid rgba($primary-color, 0.2);
+		color: var(--primary-color);
+		border-bottom: 2px solid rgba($primary-color, 0.2); // TODO: figure out var colors
 		padding-bottom: 0.5rem;
-		display: inline-block; // Make border only as wide as text
+		display: inline-block;
 	}
 
 	&__entry {
-		margin-bottom: 1.5rem; // Space between individual entries (like multiple certs)
+		margin-bottom: 1.5rem;
 
 		h4 {
 			font-size: 1.1rem;
@@ -56,23 +46,23 @@
 
 		p {
 			font-size: 0.95rem;
-			color: #555;
-			margin-bottom: 0.1rem; // Reduce space between lines within an entry
+			color: var(--text-secondary-color);
+			margin-bottom: 0.1rem;
 			line-height: 1.4;
 		}
 
 		&--certification {
-			display: flex; // Align icon and text
-			align-items: flex-start; // Align items to the top
-			gap: 1rem; // Space between icon and text block
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
 		}
 	}
 
 	&__icon {
-		font-size: 2rem; // Adjust icon size
-		color: $primary-color; // Match title color
-		margin-top: 0.2rem; // Align icon slightly lower if needed
-		flex-shrink: 0; // Prevent icon from shrinking
+		font-size: 2rem;
+		color: var(--primary-color);
+		margin-top: 0.2rem;
+		flex-shrink: 0;
 	}
 
 	&__institution,
@@ -80,19 +70,16 @@
 	&__details {
 		font-style: italic;
 		font-size: 0.9rem;
-		color: #666;
+		color: var(--text-secondary-color);
 	}
 
-	// Specific styling for the optional experience paragraph
 	&__item--experience {
 		p {
 			font-style: normal;
 			font-size: 1rem;
-			color: #444;
+			color: var(--text-secondary-color);
 			line-height: 1.6;
-			max-width: 600px; // Limit width if it's a single paragraph
+			max-width: 600px;
 		}
-		// If using grid layout, ensure this potentially shorter item looks okay
-		// May need specific grid styling if using columns
 	}
 }

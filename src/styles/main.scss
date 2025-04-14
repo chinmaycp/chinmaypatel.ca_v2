@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "theme";
 @use "mixins";
 @use "base";
 @use "../layouts/Navbar";
@@ -10,4 +11,5 @@
 @use "../sections/Blog";
 @use "../sections/Contact";
 @use "../styles/components/ProjectCard";
+@use "../styles/components/ThemeToggleButton";
 @use "../styles/pages/BlogPostPage";
