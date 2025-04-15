@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import profilePhoto from "../assets/images/profile-photo-test.jpg";
+import profilePhoto from "../assets/images/profile-photo-1.jpeg";
 import { motion } from "framer-motion";
 import { initialLoadFadeIn } from "../utils/animations";
 import { useInView } from "react-intersection-observer";
@@ -16,6 +16,8 @@ const Hero = ({ setActiveSection }) => {
 		}
 	}, [inView, setActiveSection]);
 
+	const resumePdfPath = "/Chinmay-Patel_resume.pdf";
+
 	return (
 		<motion.section
 			ref={ref}
@@ -27,22 +29,19 @@ const Hero = ({ setActiveSection }) => {
 		>
 			<div className="hero__content">
 				<div className="hero__text">
-					<h1 className="hero__headline">
-						Fullstack Software Engineer building innovative web
-						experiences.
-					</h1>
+					<h1 className="hero__headline">Hi, I'm Chinmay,</h1>
+					<h4 className="hero__headline4">I make code come alive.</h4>
 					<p className="hero__intro">
-						Passionate about crafting elegant solutions to complex
-						problems. I focus on delivering seamless user
-						experiences and writing clean, efficient code. Let's
-						build something amazing together.
+						Full-Stack Developer | React, Node.js, AWS
 					</p>
 					<div className="hero__cta">
-						<a href="#projects" className="btn btn--primary">
-							View My Work
-						</a>
-						<a href="#contact" className="btn btn--secondary">
-							Get In Touch
+						<a
+							href={resumePdfPath}
+							className="btn btn--primary"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							View Resume (PDF)
 						</a>
 					</div>
 				</div>
