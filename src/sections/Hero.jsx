@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import profilePhoto from "../assets/images/profile-photo-test.jpg";
 import { motion } from "framer-motion";
-import { sectionFadeIn } from "../utils/animations";
+import { initialLoadFadeIn } from "../utils/animations";
+import { useInView } from "react-intersection-observer";
 
-const Hero = () => {
+const Hero = ({ setActiveSection }) => {
+	const { ref, inView } = useInView({
+		threshold: 0.4,
+		// triggerOnce: false
+	});
+
+	useEffect(() => {
+		if (inView) {
+			setActiveSection("hero");
+		}
+	}, [inView, setActiveSection]);
+
 	return (
 		<motion.section
+			ref={ref}
 			id="hero"
 			className="hero"
-			variants={sectionFadeIn}
+			variants={initialLoadFadeIn}
 			initial="hidden"
-			whileInView="visible"
-			viewport={{ once: true, amount: 0.2 }}
+			animate="visible"
 		>
 			<div className="hero__content">
 				<div className="hero__text">
@@ -24,7 +36,6 @@ const Hero = () => {
 						problems. I focus on delivering seamless user
 						experiences and writing clean, efficient code. Let's
 						build something amazing together.
-						{/* Add more about your specific interests or goals if desired */}
 					</p>
 					<div className="hero__cta">
 						<a href="#projects" className="btn btn--primary">
@@ -36,8 +47,7 @@ const Hero = () => {
 					</div>
 				</div>
 
-				{/* Optional Photo Section */}
-				{profilePhoto && ( // Conditionally render if photo is imported
+				{profilePhoto && (
 					<div className="hero__photo-container">
 						<img
 							src={profilePhoto}
@@ -49,6 +59,11 @@ const Hero = () => {
 			</div>
 		</motion.section>
 	);
+};
+
+import PropTypes from "prop-types";
+Hero.propTypes = {
+	setActiveSection: PropTypes.func.isRequired,
 };
 
 export default Hero;

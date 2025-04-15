@@ -1,13 +1,69 @@
-import React from "react";
-import { FaLinkedin, FaGithub } from "react-icons/fa"; // Import social icons
+import React, { useEffect, useState } from "react";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { sectionFadeIn } from "../utils/animations";
+import { useInView } from "react-intersection-observer";
 
-const Contact = () => {
-	const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_UNIQUE_FORM_ID";
+const Contact = ({ setActiveSection }) => {
+	const FORMSPREE_ENDPOINT = "https://formspree.io/f/xoqvkqoe";
+	const [status, setStatus] = useState("idle");
+	const [errorMessage, setErrorMessage] = useState("");
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		setStatus("submitting");
+		setErrorMessage("");
+
+		const form = event.target;
+		const data = new FormData(form);
+
+		try {
+			const response = await fetch(FORMSPREE_ENDPOINT, {
+				method: "POST",
+				body: data,
+				headers: {
+					Accept: "application/json",
+				},
+			});
+
+			if (response.ok) {
+				setStatus("success");
+				form.reset();
+			} else {
+				const responseData = await response.json();
+				if (responseData.errors && responseData.errors.length > 0) {
+					setErrorMessage(
+						responseData.errors.map((err) => err.message).join(", ")
+					);
+				} else {
+					setErrorMessage(
+						"Oops! There was a problem submitting your form."
+					);
+				}
+				setStatus("error");
+			}
+		} catch (error) {
+			console.error("Form submission error:", error);
+			setErrorMessage(
+				"Oops! There was a network error. Please try again later."
+			);
+			setStatus("error");
+		}
+	};
+
+	const { ref, inView } = useInView({
+		threshold: 0.4,
+	});
+
+	useEffect(() => {
+		if (inView) {
+			setActiveSection("contact");
+		}
+	}, [inView, setActiveSection]);
 
 	return (
 		<motion.section
+			ref={ref}
 			id="contact"
 			className="contact"
 			variants={sectionFadeIn}
@@ -23,7 +79,6 @@ const Contact = () => {
 				</p>
 
 				<div className="contact__content-wrapper">
-					{/* Contact Form */}
 					<div className="contact__form-container">
 						<form
 							action={FORMSPREE_ENDPOINT}
@@ -49,9 +104,6 @@ const Contact = () => {
 									autoComplete="off"
 									required
 								/>
-								{/* Optional: Add hidden field for Formspree's AJAX submit if needed later,
-                    but standard submit works fine initially. */}
-								{/* <input type="hidden" name="_replyto" value="email" /> */}
 							</div>
 							<div className="form-group">
 								<label htmlFor="message">Message</label>
@@ -62,27 +114,41 @@ const Contact = () => {
 									required
 								></textarea>
 							</div>
-							<button type="submit" className="btn btn--primary">
-								Send Message
+							<button
+								type="submit"
+								className="btn btn--primary"
+								disabled={status === "submitting"}
+							>
+								{status === "submitting"
+									? "Sending..."
+									: "Send Message"}
 							</button>
+							{status === "success" && (
+								<p className="form-status form-status--success">
+									Thank you! Your message has been sent
+									successfully.
+								</p>
+							)}
+							{status === "error" && (
+								<p className="form-status form-status--error">
+									{errorMessage ||
+										"Oops! Something went wrong. Please try again."}
+								</p>
+							)}
 						</form>
 					</div>
-
-					{/* Contact Info & Social Links */}
 					<div className="contact__info-container">
 						<h3>Contact Details</h3>
 						<p>
-							<a href="mailto:your.email@example.com">
-								your.email@example.com
-							</a>{" "}
-							{/* Replace with your email */}
+							<a href="mailto:chinmaypatel.cp@gmail.com">
+								chinmaypatel.cp@gmail.com
+							</a>
 						</p>
-						<p>Based in: Brampton, Ontario, Canada</p>{" "}
-						{/* Or your preferred location info */}
+						<p>Based in: Toronto, Canada</p>
 						<h3 className="contact__social-title">Find me on</h3>
 						<div className="contact__social-links">
 							<a
-								href="https://github.com/yourusername" // Replace with your GitHub profile URL
+								href="https://github.com/chinmaycp"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="GitHub Profile"
@@ -91,7 +157,7 @@ const Contact = () => {
 								<FaGithub />
 							</a>
 							<a
-								href="https://linkedin.com/in/yourusername" // Replace with your LinkedIn profile URL
+								href="https://linkedin.com/in/username"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="LinkedIn Profile"
@@ -99,13 +165,17 @@ const Contact = () => {
 							>
 								<FaLinkedin />
 							</a>
-							{/* Add other relevant links (e.g., Twitter, Dev.to) if desired */}
 						</div>
 					</div>
 				</div>
 			</div>
 		</motion.section>
 	);
+};
+
+import PropTypes from "prop-types";
+Contact.propTypes = {
+	setActiveSection: PropTypes.func.isRequired,
 };
 
 export default Contact;

@@ -1,0 +1,41 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.back-to-top-button {
+	position: fixed;
+	bottom: 1.5rem;
+	right: 1.5rem;
+	z-index: 999;
+
+	background-color: var(--primary-color);
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	font-size: 1.2rem;
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: background-color 0.3s ease, transform 0.2s ease;
+
+	&:hover {
+		background-color: var(--primary-color-darker);
+		transform: scale(1.05);
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba($primary-color, 0.4);
+	}
+	&:focus:not(:focus-visible) {
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+	&:focus-visible {
+		box-shadow: 0 0 0 3px rgba($primary-color, 0.4);
+	}
+}

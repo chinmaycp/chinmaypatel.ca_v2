@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaAws } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { sectionFadeIn } from "../utils/animations";
+import { useInView } from "react-intersection-observer";
 
-const Qualifications = () => {
+const Qualifications = ({ setActiveSection }) => {
+	const { ref, inView } = useInView({
+		threshold: 0.4,
+		// triggerOnce: false
+	});
+
+	useEffect(() => {
+		if (inView) {
+			setActiveSection("qualifications");
+		}
+	}, [inView, setActiveSection]);
+
 	return (
 		<motion.section
+			ref={ref}
 			id="qualifications"
 			className="qualifications"
 			variants={sectionFadeIn}
@@ -83,6 +96,11 @@ const Qualifications = () => {
 			</div>
 		</motion.section>
 	);
+};
+
+import PropTypes from "prop-types";
+Qualifications.propTypes = {
+	setActiveSection: PropTypes.func.isRequired,
 };
 
 export default Qualifications;

@@ -1,5 +1,16 @@
 import { animate } from "motion";
 
+export const initialLoadFadeIn = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			duration: 0.7,
+			ease: "easeOut",
+		},
+	},
+};
+
 export const sectionFadeIn = {
 	hidden: { opacity: 0, y: 40 },
 	visible: {

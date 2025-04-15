@@ -4,13 +4,11 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { loadBlogPost } from "../utils/loadBlogPosts";
 
-// Optional: Add syntax highlighting later with react-syntax-highlighter
-
 const BlogPostPage = () => {
-	const { slug } = useParams(); // Get slug from URL parameter
+	const { slug } = useParams();
 	const [post, setPost] = useState(null);
 	const [loading, setLoading] = useState(true);
-	const navigate = useNavigate(); // To navigate back if post not found
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		setLoading(true);
@@ -18,10 +16,8 @@ const BlogPostPage = () => {
 		if (foundPost) {
 			setPost(foundPost);
 		} else {
-			// Handle post not found (e.g., redirect or show error)
 			console.error(`Blog post with slug "${slug}" not found.`);
-			// Optionally navigate to a 404 page or back home
-			// navigate('/404'); or navigate('/');
+			navigate("/404");
 		}
 		setLoading(false);
 	}, [slug, navigate]);
@@ -35,7 +31,6 @@ const BlogPostPage = () => {
 	}
 
 	if (!post) {
-		// You might render a specific "Not Found" component here
 		return (
 			<div className="container blog-post-page">
 				<h2>Post Not Found</h2>
@@ -46,6 +41,12 @@ const BlogPostPage = () => {
 			</div>
 		);
 	}
+
+	const metaDescription =
+		post.excerpt ||
+		(post.content
+			? post.content.substring(0, 160).replace(/\s+/g, " ").trim() + "..."
+			: `Read the blog post titled ${post.title}.`);
 
 	return (
 		<div className="container blog-post-page">

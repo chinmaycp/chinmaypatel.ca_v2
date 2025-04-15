@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { skillsData } from "../data/skillsData";
 import { motion } from "framer-motion";
 import {
@@ -6,10 +6,23 @@ import {
 	fadeInUpItem,
 	fastStaggerContainer,
 } from "../utils/animations";
+import { useInView } from "react-intersection-observer";
 
-const Skills = () => {
+const Skills = ({ setActiveSection }) => {
+	const { ref, inView } = useInView({
+		threshold: 0.4,
+		// triggerOnce: false
+	});
+
+	useEffect(() => {
+		if (inView) {
+			setActiveSection("skills");
+		}
+	}, [inView, setActiveSection]);
+
 	return (
 		<motion.section
+			ref={ref}
 			id="skills"
 			className="skills"
 			variants={sectionFadeIn}
@@ -60,6 +73,11 @@ const Skills = () => {
 			</div>
 		</motion.section>
 	);
+};
+
+import PropTypes from "prop-types";
+Skills.propTypes = {
+	setActiveSection: PropTypes.func.isRequired,
 };
 
 export default Skills;

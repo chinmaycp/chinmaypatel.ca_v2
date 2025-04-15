@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { loadBlogPosts } from "../utils/loadBlogPosts";
 import { motion } from "framer-motion";
 import { sectionFadeIn } from "../utils/animations";
+import { useInView } from "react-intersection-observer";
 
-const Blog = () => {
+const Blog = ({ setActiveSection }) => {
 	const [posts, setPosts] = useState([]);
 	const postsToShow = 3;
 
@@ -13,8 +14,20 @@ const Blog = () => {
 		setPosts(allPosts.slice(0, postsToShow));
 	}, []);
 
+	const { ref, inView } = useInView({
+		threshold: 0.4,
+		// triggerOnce: false
+	});
+
+	useEffect(() => {
+		if (inView) {
+			setActiveSection("blog");
+		}
+	}, [inView, setActiveSection]);
+
 	return (
 		<motion.section
+			ref={ref}
 			id="blog"
 			className="blog-preview"
 			variants={sectionFadeIn}
@@ -66,6 +79,11 @@ const Blog = () => {
 			</div>
 		</motion.section>
 	);
+};
+
+import PropTypes from "prop-types";
+Blog.propTypes = {
+	setActiveSection: PropTypes.func.isRequired,
 };
 
 export default Blog;
