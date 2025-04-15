@@ -29,6 +29,13 @@
 		padding: 1.5rem;
 		border-radius: 6px;
 		box-shadow: 0 2px 8px var(--card-shadow);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		will-change: transform, box-shadow;
+
+		&:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+		}
 
 		&-title {
 			font-size: 1.4rem;
@@ -58,6 +65,14 @@
 
 		.btn {
 			margin-top: 0.5rem;
+			transition: background-color 0.3s ease, color 0.3s ease,
+				transform 0.15s ease, box-shadow 0.3s ease;
+			will-change: transform;
+
+			&:active {
+				transform: scale(0.97);
+				filter: brightness(0.95);
+			}
 		}
 	}
 

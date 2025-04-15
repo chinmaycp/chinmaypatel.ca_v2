@@ -111,10 +111,12 @@
 	text-decoration: none;
 	font-weight: 500;
 	font-size: 0.95rem;
-	transition: all 0.3s ease;
+	transition: background-color 0.3s ease, color 0.3s ease,
+		transform 0.15s ease, box-shadow 0.3s ease;
 	cursor: pointer;
 	border: none;
 	text-align: center;
+	will-change: transform;
 
 	&--primary {
 		background-color: var(--primary-color);
@@ -125,6 +127,11 @@
 			background-color: color.adjust($primary-color, $lightness: 8%);
 			color: #fff;
 			text-decoration: none;
+		}
+
+		&:active {
+			transform: scale(0.97);
+			filter: brightness(0.95);
 		}
 	}
 
@@ -137,6 +144,11 @@
 			background-color: var(--primary-color);
 			color: #fff;
 			text-decoration: none;
+		}
+
+		&:active {
+			transform: scale(0.97);
+			filter: brightness(0.95);
 		}
 	}
 }

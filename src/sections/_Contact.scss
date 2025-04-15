@@ -75,7 +75,15 @@
 		button[type="submit"] {
 			align-self: flex-start;
 			margin-top: 0.5rem;
-			transition: background-color 0.3s ease, opacity 0.3s ease;
+			transition: background-color 0.3s ease, color 0.3s ease,
+				transform 0.15s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+			will-change: transform;
+
+			&:active {
+				transform: scale(0.97);
+				filter: brightness(0.95);
+			}
+
 			&:disabled {
 				opacity: 0.6;
 				cursor: not-allowed;
