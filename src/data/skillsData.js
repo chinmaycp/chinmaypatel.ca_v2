@@ -11,10 +11,18 @@ import {
 	FaDocker,
 	FaAws,
 	FaPython,
+	FaJava,
+	FaLaravel,
 } from "react-icons/fa";
 import {
+	SiC,
 	SiExpress,
+	SiFirebase,
+	SiGooglecloud,
 	SiMongodb,
+	SiMysql,
+	SiNextdotjs,
+	SiPhp,
 	SiPostgresql,
 	SiTypescript,
 	SiVite,
@@ -29,21 +37,18 @@ export const skillsData = [
 			{ name: "CSS3", icon: FaCss3Alt },
 			{ name: "Python", icon: FaPython },
 			{ name: "TypeScript", icon: SiTypescript },
+			{ name: "PHP", icon: SiPhp },
+			{ name: "Java", icon: FaJava },
+			{ name: "C", icon: SiC },
 		],
 	},
 	{
-		category: "Frontend",
+		category: "Frontend & Backend",
 		skills: [
-			{ name: "React", icon: FaReact },
+			{ name: "React.js", icon: FaReact },
 			{ name: "SASS/SCSS", icon: FaSass },
-			{ name: "Redux", icon: null },
-			{ name: "Framer Motion", icon: null },
-			{ name: "Vite", icon: SiVite },
-		],
-	},
-	{
-		category: "Backend",
-		skills: [
+			{ name: "Next.js", icon: SiNextdotjs },
+			{ name: "Laravel", icon: FaLaravel },
 			{ name: "Node.js", icon: FaNodeJs },
 			{ name: "Express.js", icon: SiExpress },
 		],
@@ -51,25 +56,19 @@ export const skillsData = [
 	{
 		category: "Databases",
 		skills: [
-			{ name: "MongoDB", icon: SiMongodb },
+			{ name: "MySQL", icon: SiMysql },
 			{ name: "PostgreSQL", icon: SiPostgresql },
+			{ name: "MongoDB", icon: SiMongodb },
 		],
 	},
 	{
 		category: "Cloud & DevOps",
 		skills: [
 			{ name: "AWS (S3, EC2, Lambda)", icon: FaAws },
+			{ name: "GCP", icon: SiGooglecloud },
+			{ name: "Firebase", icon: SiFirebase },
 			{ name: "Docker", icon: FaDocker },
 			{ name: "Git", icon: FaGitAlt },
-			{ name: "CI/CD (GitHub Actions)", icon: null },
-		],
-	},
-	{
-		category: "Concepts",
-		skills: [
-			{ name: "RESTful APIs", icon: null },
-			{ name: "Agile Methodologies", icon: null },
-			{ name: "Object-Oriented Programming", icon: null },
 		],
 	},
 ];

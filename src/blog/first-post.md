@@ -1,8 +1,8 @@
 ---
-title: My First Blog Post
+title: First Placeholder Blog Post
 date: "2025-04-14"
-author: Your Name
-excerpt: A short introduction to why I started this blog and what topics I plan to cover. Technology, learning, and maybe some project deep dives!
+author: Chinmay Patel
+excerpt: A short introduction
 slug: first-post
 ---
 

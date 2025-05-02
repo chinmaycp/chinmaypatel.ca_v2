@@ -1,8 +1,8 @@
 ---
-title: Thoughts on React State Management
+title: Second Placeholder Blog Post
 date: "2025-04-10"
-author: Your Name
-excerpt: Exploring different approaches to managing state in React applications, from Context API to libraries like Zustand and Redux.
+author: Chinmay Patel
+excerpt: A short introduction
 slug: react-state-management
 ---
 

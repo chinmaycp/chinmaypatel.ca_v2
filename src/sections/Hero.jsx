@@ -29,7 +29,7 @@ const Hero = ({ setActiveSection }) => {
 		>
 			<div className="hero__content">
 				<div className="hero__text">
-					<h1 className="hero__headline">Hi, I'm Chinmay,</h1>
+					<h1 className="hero__headline">Hi, I'm Chinmay.</h1>
 					<h4 className="hero__headline4">I make code come alive.</h4>
 					<p className="hero__intro">
 						Full-Stack Developer | React, Node.js, AWS

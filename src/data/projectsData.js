@@ -1,38 +1,30 @@
-import project1Image from "../assets/images/projects/project-photo-test.jpg";
+import project1Image from "../assets/images/projects/project-photo-1.jpg";
+import project2Image from "../assets/images/projects/project-photo-2.png";
 
 export const projectsData = [
 	{
 		id: 1,
-		title: "E-Commerce Platform",
-		imageUrl: project1Image, // Use the imported image variable
-		description:
-			"A full-featured online store built with the MERN stack, including product Browse, cart management, user authentication, and order processing.",
-		techStack: [
-			"React",
-			"Node.js",
-			"Express",
-			"MongoDB",
-			"SASS",
-			"Redux Toolkit",
-			"JWT",
-		],
-		liveUrl: "https://your-live-demo-link1.com", // Replace with your actual link
-		repoUrl: "https://github.com/yourusername/project-repo1", // Replace with your actual link
+		title: "Mementogram",
+		imageUrl: project1Image,
+		description: "A full-featured social media application.",
+		techStack: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
+		liveUrl: "https://github.com/chinmaycp/mementogram",
+		repoUrl: "https://github.com/chinmaycp/mementogram",
 	},
 	{
 		id: 2,
-		title: "Real-Time Chat Application",
-		imageUrl: project1Image, // Use the imported image variable
-		description:
-			"A web application allowing users to chat in real-time using WebSockets. Features include private messaging, user status indicators, and notifications.",
+		title: "NewsMunch",
+		imageUrl: project2Image,
+		description: "An AI News Recommendation System.",
 		techStack: [
-			"React",
-			"Node.js",
-			"Socket.IO",
-			"Tailwind CSS",
-			"Context API",
+			"Python",
+			"Flask",
+			"MongoDB",
+			"GCP",
+			"Scikit-learn",
+			"TensorFlow",
 		],
-		liveUrl: "https://your-live-demo-link2.com", // Replace with your actual link
-		repoUrl: "https://github.com/yourusername/project-repo2", // Replace with your actual link
+		liveUrl: "https://github.com/chinmaycp/NewsMunch",
+		repoUrl: "https://github.com/chinmaycp/NewsMunch",
 	},
 ];
