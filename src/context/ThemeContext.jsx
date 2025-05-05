@@ -10,7 +10,7 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
 	// Default to 'dark' as requested
-	const [theme, setTheme] = useState("dark");
+	const [theme, setTheme] = useState("light");
 
 	// Apply theme to document body
 	useEffect(() => {
@@ -29,7 +29,7 @@ export const ThemeProvider = ({ children }) => {
 		if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
 			setTheme(savedTheme);
 		} else {
-			setTheme("dark"); // Default to dark if nothing saved or invalid
+			setTheme("light"); // Default to dark if nothing saved or invalid
 		}
 	}, []);
 
