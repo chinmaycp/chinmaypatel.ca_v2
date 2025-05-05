@@ -7,7 +7,16 @@ const Footer = () => {
 		<footer className="footer">
 			<div className="footer__container">
 				<p>&copy; {currentYear} Your Name. All rights reserved.</p>
-				{/* Add social links or other info later */}
+				<p>
+					Inspired by{" "}
+					<a
+						href="https://apple.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Apple.com
+					</a>
+				</p>
 			</div>
 		</footer>
 	);
