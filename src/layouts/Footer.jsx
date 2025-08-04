@@ -6,7 +6,7 @@ const Footer = () => {
 	return (
 		<footer className="footer">
 			<div className="footer__container">
-				<p>&copy; {currentYear} Your Name. All rights reserved.</p>
+				<p>&copy; 2025 Chinmay Patel. All rights reserved.</p>
 				<p>
 					Inspired by{" "}
 					<a
